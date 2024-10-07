@@ -1,0 +1,14 @@
+{
+  "name": "reflector-frontend",
+  "type": "module",
+  "scripts": {
+    "build": "vite build"
+  },
+  "dependencies": {
+    "@caido/sdk-frontend": "0.41.0"
+  },
+  "devDependencies": {
+    "@caido/sdk-shared": "0.1.1",
+    "reflector-backend": "*"
+  }
+}
