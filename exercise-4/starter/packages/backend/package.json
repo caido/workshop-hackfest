@@ -1,0 +1,11 @@
+{
+  "name": "reflector-backend",
+  "type": "module",
+  "types": "src/index.ts",
+  "scripts": {
+    "build": "vite build"
+  },
+  "devDependencies": {
+    "@caido/sdk-backend": "0.40.0"
+  }
+}
