@@ -1,0 +1,189 @@
+{
+  "description": "",
+  "edition": 2,
+  "graph": {
+    "edges": [
+      {
+        "source": {
+          "exec_alias": "exec",
+          "node_id": 0
+        },
+        "target": {
+          "exec_alias": "exec",
+          "node_id": 2
+        }
+      },
+      {
+        "source": {
+          "exec_alias": "exec",
+          "node_id": 2
+        },
+        "target": {
+          "exec_alias": "exec",
+          "node_id": 3
+        }
+      },
+      {
+        "source": {
+          "exec_alias": "exec",
+          "node_id": 3
+        },
+        "target": {
+          "exec_alias": "exec",
+          "node_id": 4
+        }
+      },
+      {
+        "source": {
+          "exec_alias": "exec",
+          "node_id": 4
+        },
+        "target": {
+          "exec_alias": "exec",
+          "node_id": 5
+        }
+      },
+      {
+        "source": {
+          "exec_alias": "exec",
+          "node_id": 5
+        },
+        "target": {
+          "exec_alias": "exec",
+          "node_id": 1
+        }
+      }
+    ],
+    "nodes": [
+      {
+        "alias": "convert_start",
+        "definition_id": "caido/convert-start",
+        "display": {
+          "x": 20,
+          "y": -250
+        },
+        "id": 0,
+        "inputs": [],
+        "name": "Convert Start",
+        "version": "0.1.0"
+      },
+      {
+        "alias": "convert_end",
+        "definition_id": "caido/convert-end",
+        "display": {
+          "x": 20,
+          "y": 310
+        },
+        "id": 1,
+        "inputs": [
+          {
+            "alias": "data",
+            "value": {
+              "data": "$join.data",
+              "kind": "ref"
+            }
+          }
+        ],
+        "name": "Convert End",
+        "version": "0.1.0"
+      },
+      {
+        "alias": "jwt_decode",
+        "definition_id": "caido/jwt-decode",
+        "display": {
+          "x": 20,
+          "y": -150
+        },
+        "id": 2,
+        "inputs": [
+          {
+            "alias": "data",
+            "value": {
+              "data": "$convert_start.data",
+              "kind": "ref"
+            }
+          }
+        ],
+        "name": "JWT Decode",
+        "version": "0.1.0"
+      },
+      {
+        "alias": "pretty_header",
+        "definition_id": "caido/json-prettify",
+        "display": {
+          "x": 20,
+          "y": -40
+        },
+        "id": 3,
+        "inputs": [
+          {
+            "alias": "data",
+            "value": {
+              "data": "$jwt_decode.header",
+              "kind": "ref"
+            }
+          }
+        ],
+        "name": "Prettify Header",
+        "version": "0.1.0"
+      },
+      {
+        "alias": "pretty_payload",
+        "definition_id": "caido/json-prettify",
+        "display": {
+          "x": 20,
+          "y": 70
+        },
+        "id": 4,
+        "inputs": [
+          {
+            "alias": "data",
+            "value": {
+              "data": "$jwt_decode.payload",
+              "kind": "ref"
+            }
+          }
+        ],
+        "name": "Prettify Paylaod",
+        "version": "0.1.0"
+      },
+      {
+        "alias": "join",
+        "definition_id": "caido/join-two",
+        "display": {
+          "x": 20,
+          "y": 190
+        },
+        "id": 5,
+        "inputs": [
+          {
+            "alias": "left",
+            "value": {
+              "data": "$pretty_header.data",
+              "kind": "ref"
+            }
+          },
+          {
+            "alias": "right",
+            "value": {
+              "data": "$pretty_payload.data",
+              "kind": "ref"
+            }
+          },
+          {
+            "alias": "separator",
+            "value": {
+              "data": ".",
+              "kind": "string"
+            }
+          }
+        ],
+        "name": "Join",
+        "version": "0.1.0"
+      }
+    ]
+  },
+  "id": "7d3a6af4-eefa-4065-8b37-42263c4a71ed",
+  "kind": "convert",
+  "name": "JWT Decode"
+}
