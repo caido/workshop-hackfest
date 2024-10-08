@@ -8,7 +8,7 @@ async def create_finding(client: AsyncClientSession, finding: Finding):
     query = gql(
         """
         mutation CreateFinding($requestId: ID!, $input: CreateFindingInput!) {
-            # CODE
+            # CODE: Mutation to create a finding with requestId and input
         }
         """
     )
@@ -21,7 +21,10 @@ async def create_finding(client: AsyncClientSession, finding: Finding):
         variable_values={
             "requestId": finding.id,
             "input": {
-                # CODE
+                "dedupeKey": "",  # CODE: Set the dedupeKey to a unique value,
+                "description": "",  # CODE: Set the description to the description variable,
+                "reporter": "Reflector",
+                "title": "Reflected parameters",
             },
         },
     )

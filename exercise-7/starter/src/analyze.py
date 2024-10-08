@@ -10,7 +10,7 @@ class Finding:
 
 
 def analyse(request) -> Finding | None:
-    query: str = "query"  # CODE
+    query: str = "query"  # CODE: Get the query from the request
     if not query:
         return None
     parameters = dict(
@@ -21,7 +21,7 @@ def analyse(request) -> Finding | None:
 
     if not request["response"]:
         return None
-    response_raw = []  # CODE
+    response_raw = []  # CODE: Get the reponse raw and base64 decode it
 
     reflected_parameters = []
     for key, value in parameters.items():
@@ -29,6 +29,6 @@ def analyse(request) -> Finding | None:
             reflected_parameters.append((key, value))
 
     if reflected_parameters:
-        dedupe_key = ""  # CODE
+        dedupe_key = ""  # CODE: Create a unique deduplication key
         return Finding(request["id"], reflected_parameters, dedupe_key)
     return None

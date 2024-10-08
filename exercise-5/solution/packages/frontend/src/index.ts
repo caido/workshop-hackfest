@@ -91,9 +91,6 @@ export const init = (sdk: CaidoSDK) => {
   // Register command palette
   sdk.commandPalette.register(Commands.analyse);
 
-  // Register shortcut
-  sdk.shortcuts.register(Commands.analyse, []);
-
   // Register page
   addPage(sdk);
 

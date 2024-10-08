@@ -16,7 +16,7 @@ async def subscribe_requests(client: AsyncClientSession):
     query = gql(
         """
         subscription {
-            # CODE
+            # CODE: Subscription to get updatedRequest with RequestFull fragment
         }
         """,
         request_full,

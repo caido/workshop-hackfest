@@ -4,7 +4,7 @@ import type { SDK, DefineAPI } from "caido:plugin";
 import { analyse } from "./analyse";
 import { createFinding } from "./finding";
 
-async function process_existing(sdk: SDK): Promise<void> {
+async function processExisting(sdk: SDK): Promise<void> {
   sdk.console.log("Analyzing existing requests");
 
   let nextPage = true;
@@ -12,7 +12,6 @@ async function process_existing(sdk: SDK): Promise<void> {
   let count = 0;
   do {
     // Query page
-    // @ts-ignore
     let query = sdk.requests.query();
     query = query.first(100);
     if (after) {
@@ -47,7 +46,7 @@ async function process_existing(sdk: SDK): Promise<void> {
   sdk.console.log("Finished analyzing existing requests");
 }
 
-async function process_new(
+async function processNew(
   sdk: SDK,
   request: Request,
   response: Response,
@@ -64,11 +63,11 @@ async function process_new(
 }
 
 export type API = DefineAPI<{
-  processExisting: typeof process_existing;
+  processExisting: typeof processExisting;
 }>;
 
 export async function init(sdk: SDK<API, {}>) {
-  sdk.api.register("processExisting", process_existing);
+  sdk.api.register("processExisting", processExisting);
 
-  sdk.events.onInterceptResponse(process_new);
+  sdk.events.onInterceptResponse(processNew);
 }

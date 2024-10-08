@@ -8,7 +8,7 @@ export async function createFinding(sdk: SDK, finding: Finding) {
     description += `- ${key}: ${value}\n`;
   }
 
-  const result = {}; // CODE
+  const result = {}; // CODE: Create a finding
 
   // @ts-ignore
   sdk.console.log(`Finding created with ID ${result.getId()}`);

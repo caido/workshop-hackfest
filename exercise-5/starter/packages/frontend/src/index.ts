@@ -13,7 +13,7 @@ const Commands = {
 } as const;
 
 const getCount = (sdk: CaidoSDK) => {
-  const storage = {}; // CODE
+  const storage = {}; // CODE: Get the storage
 
   if (storage) {
     // @ts-ignore
@@ -25,11 +25,11 @@ const getCount = (sdk: CaidoSDK) => {
 
 const increment = async (sdk: CaidoSDK) => {
   const count = getCount(sdk);
-  // CODE
+  // CODE: Set the storage to count + 1
 };
 
 const analyse = async (sdk: CaidoSDK) => {
-  // CODE
+  // CODE: Call the backend to process existing requests
   await increment(sdk);
 };
 
@@ -57,7 +57,7 @@ const addPage = (sdk: CaidoSDK) => {
     `[data-command="${Commands.analyse}"]`,
   ) as HTMLButtonElement;
 
-  // CODE
+  // CODE: Attach to storage.onChange to update the countElement
 
   analyseButton.addEventListener("click", async () => {
     analyseButton.disabled = true;
@@ -70,22 +70,19 @@ const addPage = (sdk: CaidoSDK) => {
     }
   });
 
-  // CODE
+  // CODE: Add the page to the navigation
 };
 
 export const init = (sdk: CaidoSDK) => {
   // Commands
-  // CODE
+  // CODE: Create a command
 
   // Register command palette
-  // CODE
-
-  // Register shortcut
-  // CODE
+  // CODE: Register the command in the command palette
 
   // Register page
   addPage(sdk);
 
   // Register sidebar
-  // CODE
+  // CODE: Register the page in the sidebar
 };

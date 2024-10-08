@@ -4,7 +4,7 @@ import type { SDK } from "caido:plugin";
 import { analyse } from "./analyse";
 import { createFinding } from "./finding";
 
-async function process_new(
+async function processNew(
   sdk: SDK,
   request: Request,
   response: Response,
@@ -21,5 +21,5 @@ async function process_new(
 }
 
 export async function init(sdk: SDK) {
-  sdk.events.onInterceptResponse(process_new);
+  sdk.events.onInterceptResponse(processNew);
 }

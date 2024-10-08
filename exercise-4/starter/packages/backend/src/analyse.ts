@@ -9,7 +9,7 @@ export type Finding = {
 };
 
 export function analyse(request: Request, response: Response): Finding | null {
-  const query = "query"; // CODE
+  const query = "query"; // CODE: Get the query
   if (!query) {
     return null;
   }
@@ -29,7 +29,7 @@ export function analyse(request: Request, response: Response): Finding | null {
       .filter(notNullable),
   );
 
-  const responseRaw = ""; // CODE
+  const responseRaw = ""; // CODE: Get the response body
 
   const reflectedParameters: [string, string][] = [];
   for (const [key, value] of Object.entries(parameters)) {
@@ -39,7 +39,7 @@ export function analyse(request: Request, response: Response): Finding | null {
   }
 
   if (reflectedParameters.length > 0) {
-    const dedupeKey = ""; // CODE
+    const dedupeKey = ""; // CODE: Compute a unique deduplication key
     return {
       request,
       parameters: reflectedParameters,

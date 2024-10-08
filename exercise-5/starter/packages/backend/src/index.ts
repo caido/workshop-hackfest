@@ -4,7 +4,7 @@ import type { SDK, DefineAPI } from "caido:plugin";
 import { analyse } from "./analyse";
 import { createFinding } from "./finding";
 
-async function process_existing(sdk: SDK): Promise<void> {
+async function processExisting(sdk: SDK): Promise<void> {
   sdk.console.log("Analyzing existing requests");
 
   let nextPage = true;
@@ -12,9 +12,11 @@ async function process_existing(sdk: SDK): Promise<void> {
   let count = 0;
   do {
     // Query page
-    let query = {}; // CODE
+    let query = {}; // CODE: Start a requests query
+    // CODE: Limit the query to 100 items
+    // CODE: Set the after cursor if it exists
 
-    // @ts-ignore
+    // @ts-expect-error
     let result = await query.execute();
     count += result.items.length;
 
@@ -36,13 +38,14 @@ async function process_existing(sdk: SDK): Promise<void> {
     }
 
     sdk.console.log(`Processed ${count} requests`);
-    // CODE
+    // CODE: nextPage should be set to the pageInfo hasNextPage property
+    // CODE: after should be set to the pageInfo endCursor
   } while (nextPage);
 
   sdk.console.log("Finished analyzing existing requests");
 }
 
-async function process_new(
+async function processNew(
   sdk: SDK,
   request: Request,
   response: Response,
@@ -58,10 +61,10 @@ async function process_new(
   }
 }
 
-export type API = DefineAPI<{}>; // CODE
+export type API = DefineAPI<{}>; // CODE: Define the API
 
 export async function init(sdk: SDK<API, {}>) {
-  // CODE
+  // CODE: Register processExisting to the api
 
-  sdk.events.onInterceptResponse(process_new);
+  sdk.events.onInterceptResponse(processNew);
 }

@@ -13,7 +13,7 @@ async def process_requests(client: AsyncClientSession, after: str = None):
     query = gql(
         """
         query Requests($first: Int, $after: String) {
-            # CODE
+            # CODE: Grapql query to get requests using RequestFull fragment and pageInfo
         }
         """,
         request_full,
@@ -33,7 +33,7 @@ async def process_requests(client: AsyncClientSession, after: str = None):
         i += len(result["requests"]["nodes"])
         print(f"[*] Processed {i} requests")
 
-        # CODE
+        # CODE: Check if pageInfo hasNextPage is True and update after with endCursor, otherwise break the loop
 
 
 async def app():

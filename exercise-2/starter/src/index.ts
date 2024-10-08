@@ -33,11 +33,11 @@ function sign(spec: RequestSpec) {
   const amzDate = `${year}${month}${day}T${hours}${minutes}${seconds}Z`;
   const dateStamp = amzDate.slice(0, 8);
 
-  const method = spec.getMethod();
-  const canonicalUri = spec.getPath();
-  const canonicalQueryString = spec.getQuery();
-  const host = spec.getHost();
-  const payload = spec.getBody()?.toRaw() ?? "";
+  const method = ""; // CODE: Get the method
+  const canonicalUri = ""; // CODE: Get the path
+  const canonicalQueryString = ""; // CODE: Get the query
+  const host = ""; // CODE: Get the host
+  const payload = ""; // CODE: Get the body
   const payloadHash = createHash("SHA256").update(payload).digest("hex");
   const canonicalHeaders = `host:${host}\nx-amz-content-sha256:${payloadHash}\nx-amz-date:${amzDate}\n`;
   const signedHeaders = "host;x-amz-content-sha256;x-amz-date";
@@ -84,5 +84,6 @@ function sign(spec: RequestSpec) {
 }
 
 export function run(input: BytesInput, sdk: SDK): Bytes {
-  // CODE
+  // CODE: Parse the request, compute the signature and return the headers (Authorization, x-amz-date, x-amz-content-sha256)
+  return "";
 }
