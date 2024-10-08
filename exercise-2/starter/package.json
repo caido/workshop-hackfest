@@ -1,0 +1,17 @@
+{
+  "name": "caido-aws-sign",
+  "version": "0.1.0",
+  "description": "AWS Signature",
+  "author": "Caido Labs Inc. <dev@caido.io>",
+  "license": "CC0-1.0",
+  "scripts": {
+    "build": "rm -rf dist/ && vite build"
+  },
+  "dependencies": {
+    "@caido/sdk-workflow": "0.41.1-beta.6"
+  },
+  "devDependencies": {
+    "typescript": "5.6.2",
+    "vite": "5.4.8"
+  }
+}
