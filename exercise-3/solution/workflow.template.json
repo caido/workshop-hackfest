@@ -1,5 +1,5 @@
 {
-  "description": "StarterKit workflow for Caido",
+  "description": "Find reflected query parameters in response",
   "edition": 2,
   "graph": {
     "edges": [
@@ -38,7 +38,7 @@
         "version": "0.1.0"
       },
       {
-        "alias": "starterkit_script",
+        "alias": "reflector_script",
         "definition_id": "caido/http-code-js",
         "display": {
           "x": 0,
@@ -68,7 +68,7 @@
             }
           }
         ],
-        "name": "StarterKit Script",
+        "name": "Reflector Script",
         "version": "0.1.0"
       },
       {
@@ -87,5 +87,5 @@
   },
   "id": "f66fcc63-ac3d-46f4-a3b2-83a0137cf203",
   "kind": "passive",
-  "name": "StarterKit Workflow"
+  "name": "Reflector Workflow"
 }

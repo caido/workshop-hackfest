@@ -11,7 +11,7 @@ export async function createFinding(sdk: SDK, finding: Finding) {
   const result = await sdk.findings.create({
     dedupeKey: finding.dedupeKey,
     description,
-    reporter: "Reflector Plugin",
+    reporter: "Reflector Workflow",
     request: finding.request,
     title: "Reflected parameters",
   });
