@@ -1,4 +1,4 @@
-import type { SDK } from "caido:plugin";
+import type { SDK } from "caido:workflow";
 
 import type { Finding } from "./analyse";
 
@@ -8,13 +8,8 @@ export async function createFinding(sdk: SDK, finding: Finding) {
     description += `- ${key}: ${value}\n`;
   }
 
-  const result = await sdk.findings.create({
-    dedupeKey: finding.dedupeKey,
-    description,
-    reporter: "Reflector Plugin",
-    request: finding.request,
-    title: "Reflected parameters",
-  });
+  const result = {}; // CODE: Create a finding
 
+  // @ts-ignore
   sdk.console.log(`Finding created with ID ${result.getId()}`);
 }

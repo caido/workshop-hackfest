@@ -11,6 +11,7 @@ export default defineConfig({
       formats: ["es"],
     },
     outDir: "../../dist/backend",
+    minify: false,
     rollupOptions: {
       external: [/caido:.+/, ...builtinModules],
       output: {

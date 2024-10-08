@@ -1,4 +1,4 @@
-import type { SDK } from "caido:plugin";
+import type { SDK } from "caido:workflow";
 
 import type { Finding } from "./analyse";
 

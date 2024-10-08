@@ -1,0 +1,17 @@
+{
+  "name": "reflector-workflow",
+  "version": "0.1.0",
+  "author": "Caido Labs Inc. <dev@caido.io>",
+  "license": "CC0-1.0",
+  "main": "index.js",
+  "scripts": {
+    "build": "rm -rf dist/ && vite build"
+  },
+  "dependencies": {
+    "@caido/sdk-workflow": "0.42.0"
+  },
+  "devDependencies": {
+    "typescript": "5.6.2",
+    "vite": "5.4.8"
+  }
+}
