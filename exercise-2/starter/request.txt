@@ -1,0 +1,4 @@
+GET /test.txt HTTP/1.1
+Host: caido-workshop-hackfest.s3.amazonaws.com
+Connection: close
+Authorization: placeholder
